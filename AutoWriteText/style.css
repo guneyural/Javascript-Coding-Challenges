@@ -1,0 +1,10 @@
+body {margin: 0;padding:0;font-family: 'Montserrat', Arial, Helvetica, sans-serif; background: url("https://cdn.bmwblog.com/wp-content/uploads/Matte-Black-HRE-Wheels-For-A-Black-Sapphire-M4-1.jpg") no-repeat center center fixed; -webkit-background-size: cover;-moz-background-size: cover;-o-background-size: cover;background-size: cover;}
+
+.text-content {
+     color:white;
+     text-align: center;
+     margin-top: 450px;
+     font-weight: bold;
+     text-shadow: 2px 2px #000000;
+     letter-spacing: 3px;
+}
