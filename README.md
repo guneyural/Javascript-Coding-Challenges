@@ -1,2 +1,2 @@
 # Javascript-Coding-Challenges
-Javascript Codding Challenges For Practicing
+Javascript Coding Challenges For Practicing
