@@ -1,0 +1,42 @@
+body{margin: 0;padding:0;font-family: 'Montserrat', Arial, Helvetica, sans-serif;}
+* {margin: 0;padding:0;}
+/*.container {display:block; margin: 0 auto;width: 70%;display:block; background: yellow;}*/
+
+.btn {
+     display:block;
+     border:1px solid #1b68e3;
+     background: #1b68e3;
+     border-radius: 8px;
+     padding: 20px;
+     font-size: 30px;
+     font-weight: bold;
+     color: white;
+     letter-spacing: 3px;
+     text-align: center;
+     margin: auto;
+     margin-top: 130px;
+     cursor: pointer;
+     outline: 0;
+}
+
+.btn:focus {
+     outline: none !important;
+}
+
+.toast-field {
+     margin-top: 50px;
+}
+
+.snackbar {
+     margin:auto;    
+     background: #4a5669;
+     font-weight: bold;
+     margin-top: 20px;
+     color: white;
+     width: 30%;
+     text-align: center;
+     padding: 15px;
+     border-radius: 10px;
+     position:relative;
+     z-index: 1;
+}
