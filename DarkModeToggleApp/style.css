@@ -1,0 +1,19 @@
+body {margin: 0;padding:0;font-family: 'Montserrat', Arial, Helvetica, sans-serif;}
+
+span {
+     position: fixed;
+     right: 20px;
+     top: 15px;
+     background-color: black;
+     padding: 20px;
+     border-radius: 50%;
+     border: 1px solid black;
+}
+
+span:hover {
+     cursor: pointer;
+}
+
+.margin-top {
+     margin-top: 250px;
+}
