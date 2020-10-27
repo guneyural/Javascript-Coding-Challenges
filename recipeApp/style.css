@@ -1,0 +1,151 @@
+body {margin: 0;padding:0;font-family: 'Montserrat', Arial, Helvetica, sans-serif}
+
+.main-content {
+     background: white;
+     border: 1px solid #efefef;
+     width: 20%;
+     margin: auto;
+     margin-top: 1%;
+     padding-top: 15px;
+}
+
+input[type="text"] {
+     background: #efefee;
+     border: 1px solid #efefef;
+     padding: 6.5px;
+}
+
+nav {
+     text-align: center;
+}
+
+.favorite-meals {
+     margin-top: 8px;
+     background: black;
+     height: 150px;
+     overflow-x: auto; 
+     overflow-y: hidden;
+     background: #7F7FD5;
+     background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+     background: linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+     white-space: nowrap;
+     font-size: 13px;
+     font-weight: bold;
+}
+
+table {
+     margin: 0px;
+}
+
+.favorite-meals img {
+     border-radius: 50%;
+     width: 63px;
+     height: 63px;
+     padding: 2px;
+     border: 2.45px solid #8a2eb8;
+}
+
+.favorite-meals img:hover {
+     cursor: pointer;
+}
+
+.content p.lead {
+     position: absolute;
+     top: 7px;
+     left: 5px;
+     font-weight: bold;
+     background: #efefefef;
+     padding: 3px 10px;
+}
+
+.card {
+     margin: auto;
+}
+
+.card-img-top:hover {
+     cursor: pointer;
+}
+
+.recipe-name {
+     font-size: 18px;
+     font-weight: bold;
+     padding: 15px 5px;
+}
+
+.add-favorite {
+     float: right;
+     color: gray;
+}
+
+.add-favorite:hover {
+     cursor: pointer;
+}
+
+table tr th {
+     padding: 10px;
+     padding-bottom: 0;
+}
+
+table tr td {
+     padding-left: 0px;
+     padding-right: 10px;
+}
+
+.search-icon:hover {
+     cursor: pointer;
+}
+
+.recipe-modal {
+     display: none;
+     position: fixed;
+     z-index: 1;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.4);
+     overflow-y: auto;
+}
+
+.recipe-content {
+     position: relative;
+     background:white;
+     width: 500px;
+     margin: auto;
+     margin-top: 2%;
+}
+
+.close-modal {
+     position: absolute;
+     font-size: 80px;
+     color: white;
+     right: 2px;
+     top:2px;
+     background: black;
+}
+
+.close-modal:hover {
+     cursor: pointer;
+}
+
+.add-favorite:hover{
+     color: black;
+}
+
+.added-favorite {
+     color: black;
+}
+
+@media only screen and (max-width: 800px) {
+     .main-content {
+          width: 100%;
+     }
+
+     .recipe-content {
+          width: 300px;
+     }
+
+     .close-modal {
+          font-size: 50px;
+     }
+}
