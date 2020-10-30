@@ -1,0 +1,79 @@
+body {margin:0; padding: 0; font-family: 'Montserrat', Arial, Helvetica, sans-serif;}
+
+.container .title{
+     font-weight: bold;
+     text-align: center;
+     margin-top: 13rem;
+     color: #01183d;
+}
+
+.underline {
+     border-top: 5px solid #1d80a3;
+     width: 80px;
+     margin: auto;
+}
+
+.review {
+     padding: 20px;
+     margin: auto;
+     background: white;
+     width: 52rem;
+     margin-top: 70px;
+}
+
+.img-container {
+     padding-top: 10px;
+}
+
+
+#personImg {
+     width: 150px;
+     height: 150px;
+     margin-top: -40px;
+     margin-left: 5px;
+     object-fit: cover;
+     border-radius: 50%;
+}
+
+.img-container .img {
+     margin:auto;
+     width: 150px;
+     height: 150px;
+     background: #1d80a3;
+     border-radius: 50%;
+}
+
+.main {
+     margin-top: 20px;
+     text-align: center;
+}
+
+#role {
+     color: #1d80a3;
+}
+
+#fullname {
+     font-weight: bold;
+     color: #01183d;
+}
+
+#content {
+     margin: auto;
+     width: 80%;
+     color: #617D98;
+}
+
+#next, #prev {
+     font-size: 25px;
+     font-weight: bold;
+     padding: 15px;
+     color: #1d80a3;
+}
+
+#next:hover {
+     cursor: pointer;
+}
+
+#prev:hover {
+     cursor: pointer;
+}
