@@ -1,0 +1,184 @@
+body {margin: 0;padding:0;font-family: 'Montserrat', Arial, Helvetica, sans-serif;}
+
+#burger{display: none;}
+
+.topnav {
+     position: fixed;
+     z-index: 1;
+     width: 100%;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 10px;
+     padding-left: 360px;
+     padding-right: 360px;
+}
+
+.navbar-brand {
+     font-size: 28px;
+     font-weight: bold;
+     text-shadow: 1px 1px 2px black;
+     color: white;
+     text-decoration: none;
+     text-transform: uppercase;
+}
+
+.navbar-brand:hover{
+     color: white;
+}
+
+.nav-links li {
+     list-style-type: none;
+     font-weight: bold;
+     display: inline;
+     padding-left: 20px;
+     font-size: 24px;
+     letter-spacing: 2px;
+     text-shadow: 2px 2px 2px black;
+}
+
+.nav-links li a {
+     text-decoration: none;
+     color: white;
+}
+
+#overview {
+     height: 100vh;
+     width: 100%;
+     background: url("https://www.bmw.in/content/dam/bmw/common/all-models/m-series/m5-sedan/2019/Inspire/bmw-m-series-m5-competition-inspire-stage-desktop.jpg/_jcr_content/renditions/cq5dam.resized.img.1680.large.time1556106685608.jpg") no-repeat center center fixed; 
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+}
+
+.hero-text {
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     flex-direction: column;
+     height: 100%;
+     text-transform: uppercase;
+     letter-spacing: 3px;
+}
+
+.hero-text img {
+     height: 50px;
+}
+
+.hero-text h1 {
+     font-size: 40px;
+     font-weight: bold;
+     text-align: center;
+     padding-top: 20px;
+}
+
+.hero-text h2 {
+     font-size: 30px;
+     font-weight: bold;
+     text-align: center;
+}
+
+.child-hero {
+     display:flex; 
+     flex-direction: column; 
+     align-items: center;
+     margin-bottom: 30px;
+     margin-left: 50px;
+}
+
+button {
+     background: #2279dd;
+     border: 1px solid #2279dd;
+     width: 250px;
+     margin-top: 10px;
+     padding: 10px;
+     font-weight: bold;
+     color: white;
+}
+
+#engine {
+     background: black;
+     background: url("https://images.caricos.com/b/bmw/2018_bmw_m5/images/1920x1080/2018_bmw_m5_56_1920x1080.jpg") no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     height: 100vh;
+     width: 100%;
+     color: white;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: flex-start;
+}
+
+#engine p {
+     width: 30%;
+     padding-left: 30px;
+     margin-bottom: 300px;
+}
+
+#engine h1 {
+     padding-left: 30px;
+     font-size: 50px;
+}
+
+#engine p span {
+     font-size: 20px;
+     font-weight: bold;
+     text-transform: uppercase;
+}
+
+#interior {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: url("https://f90.bimmerpost.com/forums/attachment.php?s=230c746f38def8c3932956a73659c3c8&attachmentid=1678897&d=1503396853") no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     height: 100vh;
+}
+
+.interior-text{
+     font-size: 59px;
+     text-transform: uppercase;
+     color: white;
+}
+
+#exterior {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background: url("https://g30.bimmerpost.com/forums/attachment.php?attachmentid=1678906&stc=1&d=1503398099") no-repeat center center fixed;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     -o-background-size: cover;
+     background-size: cover;
+     height: 100vh;
+}
+
+@media only screen and (max-width: 900px) {
+     .nav-links li{display:none;}
+     #burger {position: absolute; display: block; float: right; top: 10px; right: 10px;}
+     .navbar-brand {position: absolute; top: 10px;}
+
+     .topnav {position: fixed; padding-left: 20px; padding-right: 20px; cursor: pointer;}
+
+     #engine {height: 100vh;}
+     #overview {position: absolute; top:0; color:white; text-shadow: 2px 2px 2px black;}
+}
+
+@media screen and (max-width: 900px) {
+     .topnav.responsive .nav-links li{
+          display: block;
+          float: none;
+          text-align: left;
+     }
+     
+     .topnav.responsive .nav-links {
+          margin-top: 50px;
+     }
+}
