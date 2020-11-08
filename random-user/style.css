@@ -1,0 +1,85 @@
+body {margin: 0;padding: 0;  font-family: 'Open Sans', Arial, Helvetica, sans-serif;}
+
+.user-card-buttons button {
+     background: white;
+     border: 2px solid white;
+     color: #235297;
+     margin-left: 14px;
+     font-size: 20px;
+     margin-top: 15px;
+}
+button:focus {outline:none;}
+
+.user-card {
+     background: white;
+     margin: auto;
+     width: 600px;
+     margin-top: 40vh;
+}
+
+.user-card-footer {
+     padding: 35px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.user-card-footer button {
+     font-weight: bold;
+     padding: 5px;
+     width: 250px;
+     border-radius: 8px;
+     color: white;
+     letter-spacing: 2px;
+     background: #49c559;
+     border: 2px solid #49c559;
+     transition: 0.45s;
+}
+
+.user-card-footer button:hover {
+     background: white;
+     color: #49c559;
+}
+
+.user-card-header {
+     display: flex;
+     justify-content: center;
+     margin: 0;
+     background: #f5f5f5;
+     height: 90px;
+     border-bottom: 1px solid #bdb7b7;
+     margin-bottom: 75px;
+}
+
+.hero {
+     background: #333333;
+     height: 50vh;
+     position: absolute;
+     top: 0;
+     left:0;
+     width: 100%;
+}
+
+img {
+     padding: 2px;
+     border: 1px solid #7e7b7b;
+     border-radius: 50%;
+     object-fit: fit;
+     height: 130px;
+     width: 130px;
+     margin-top: 20px;
+}
+
+.user-card-body {
+     text-align: center;
+}
+
+@media only screen and (max-width: 700px) {
+     .user-card {
+          width: 100%;
+     }
+     button {
+          padding: 0px;
+          font-size: 18px;
+     }
+}
