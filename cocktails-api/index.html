@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+     <link rel="stylesheet" type="text/css" href="style.css">
+     <title>Cocktails Api</title>
+</head>
+<body>
+
+    <div class="drink-modal">
+        <div class="modal-content">
+            <div class="container">
+                <img src="Loading.gif" class="loading-img-modal m-auto">
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Cocktails API</h1>
+            <form method="GET">
+                <input type="text" placeholder="Search Your Favorite Cocktail" value="" />
+            </form>
+        </div>
+        <p class="error"></p>
+        <div class="section">
+            <div class="row">
+                <img src="Loading.gif" class="loading-img"/>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
