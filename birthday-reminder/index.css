@@ -1,0 +1,82 @@
+img {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 50%;
+  float: left;
+}
+
+.user-list {
+  border: 1px solid #dedede;
+  border-radius: 8px;
+  width: 20%;
+  margin: auto;
+  margin-top: 50px;
+  box-shadow: 1px 1px 8px #dedede;
+}
+
+.user-section {
+  position: relative;
+  top: 0px;
+  left: 20px;
+}
+
+.birthday-count {
+  position: relative;
+  top: 15px;
+  left: 18px;
+}
+
+.remove-btn {
+  position: relative;
+  left: 0px;
+}
+
+.person-card {
+  width: 100%;
+  padding: 20px;
+  margin: auto;
+}
+
+button {
+  background: #162770;
+  border: 1px solid#162770;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+  border-radius: 8px;
+}
+
+.birthday-count {
+  font-size: 22px;
+}
+
+.clear-all-btn {
+  width: 100%;
+  padding: 15px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .user-list {
+    width: 35%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .user-list {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 580px) {
+  .user-list {
+    width: 60%;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .user-list {
+    width: 80%;
+  }
+}
