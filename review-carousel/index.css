@@ -1,0 +1,144 @@
+.review-slider-right,
+.review-slider-left {
+  font-size: 26px;
+  padding: 10px;
+  cursor: pointer;
+  color: #3e89bb;
+  transition: 0.2s;
+}
+
+.review-slider-right:hover,
+.review-slider-left:hover {
+  color: #115888;
+}
+
+.bottom-line {
+  height: 5px;
+  width: 80px;
+  background: #49a6e9;
+  margin: auto;
+}
+
+.tour-header {
+  text-align: center;
+  color: #102a42;
+}
+
+.review-container {
+  width: 80%;
+  margin: auto;
+}
+
+.review-card {
+  box-shadow: 0px 0px 8px #cecece;
+  border: 1px solid #efefef;
+  border-radius: 8px;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+  margin-top: 60px;
+}
+
+.review-card-bottom {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.random-btn {
+  font-size: 16px;
+  border: 1px solid white;
+  background: white;
+  margin-bottom: 5px;
+  outline: none;
+  color: #3e89bb;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+
+.random-btn:hover {
+  color: white;
+}
+
+.review-img {
+  height: 130px;
+  width: 130px;
+  border-radius: 50%;
+  position: absolute;
+  right: 7px;
+  top: 2px;
+}
+
+.img-circle {
+  width: 130px;
+  height: 130px;
+  background: #3e89bb;
+  margin: auto;
+  position: relative;
+}
+
+.quote-icon {
+  color: #3e89bb;
+  font-size: 35px;
+  position: absolute;
+  z-index: 3;
+  left: -12px;
+  top: 10px;
+}
+
+.review-description {
+  font-size: 13px;
+  color: #617d98;
+}
+
+.review-job {
+  color: #3e89bb;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 12px;
+  margin-top: -10px;
+}
+
+.review-name {
+  color: #102a42;
+  text-transform: capitalize;
+  font-weight: bold;
+  padding-top: 8px;
+}
+
+@media only screen and (max-width: 1400px) {
+  .review-card {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .review-card {
+    width: 65%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .review-container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .review-card {
+    width: 80%;
+    margin: 15px auto;
+  }
+
+  .review-description {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .review-card {
+    width: 95%;
+    margin: auto;
+  }
+}
