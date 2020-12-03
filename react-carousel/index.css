@@ -1,0 +1,171 @@
+body {
+  background: #f1f5f8;
+  color: #324d67;
+}
+
+.container {
+  text-align: center;
+  padding-top: 78px;
+}
+
+.user-img {
+  height: 130px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+button {
+  z-index: 1;
+
+  background: #324d67;
+  border: 1px solid #324d67;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+}
+
+.job-title {
+  position: relative;
+  top: -15px;
+  text-transform: capitalize;
+}
+
+.slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 600px;
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.quote-icon {
+  color: #ba5c2d;
+  font-size: 40px;
+}
+
+article {
+  position: absolute;
+  top: 80px;
+  opacity: 0;
+  transform: translateX(0);
+  left: 95px;
+  width: 80%;
+}
+
+.slide-active {
+  opacity: 1;
+}
+
+.username {
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: #ba5c2d;
+}
+
+.slide-active-next {
+  opacity: 1;
+  animation: carouselAnimationNext 0.4s ease forwards;
+}
+.slide-active-prev {
+  opacity: 1;
+  animation: carouselAnimationPrev 0.4s ease forwards;
+}
+@keyframes carouselAnimationNext {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 95px;
+  }
+}
+@keyframes carouselAnimationPrev {
+  0% {
+    left: 200%;
+  }
+  100% {
+    left: 95px;
+  }
+}
+
+.page-header {
+  letter-spacing: 1.3px;
+  color: #324d67;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container {
+    width: 100%;
+  }
+  .slider {
+    width: 100%;
+  }
+  article {
+    left: 80px;
+  }
+  @keyframes carouselAnimationNext {
+    0% {
+      left: -200%;
+    }
+    100% {
+      left: 80px;
+    }
+  }
+  @keyframes carouselAnimationPrev {
+    0% {
+      left: 200%;
+    }
+    100% {
+      left: 80px;
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  article {
+    left: 60px;
+  }
+  @keyframes carouselAnimationNext {
+    0% {
+      left: -200%;
+    }
+    100% {
+      left: 60px;
+    }
+  }
+  @keyframes carouselAnimationPrev {
+    0% {
+      left: 200%;
+    }
+    100% {
+      left: 60px;
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  article {
+    left: 30px;
+  }
+  @keyframes carouselAnimationNext {
+    0% {
+      left: -200%;
+    }
+    100% {
+      left: 30px;
+    }
+  }
+  @keyframes carouselAnimationPrev {
+    0% {
+      left: 200%;
+    }
+    100% {
+      left: 30px;
+    }
+  }
+}
