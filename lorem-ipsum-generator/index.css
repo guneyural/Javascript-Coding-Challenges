@@ -1,0 +1,76 @@
+body {
+  background: #f1f5f8;
+  color: #063251;
+}
+
+.container {
+  text-align: center;
+  padding-top: 78px;
+}
+
+.number-input {
+  border: 1px solid white;
+  border-radius: 7px;
+  box-shadow: 1px 1px 5px #d1d0d0;
+  padding-left: 10px;
+  width: 70px;
+}
+
+.input-container {
+  display: flex;
+  width: 300px;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gen-para {
+  background: #205688;
+  border: 2px solid #205688;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.gen-para:focus {
+  outline: none;
+}
+
+.gen-para:hover {
+  border: 2px solid #dedede;
+  background: white;
+  color: #205688;
+}
+
+.para {
+  padding-top: 15px;
+  font-size: 14px;
+  width: 70%;
+  margin: auto;
+  color: #617d98;
+  opacity: 0;
+  animation: ease 0.3s paraLanding forwards;
+}
+
+@keyframes paraLanding {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  h3 {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (max-width: 860px) {
+  .para {
+    width: 100%;
+  }
+}
