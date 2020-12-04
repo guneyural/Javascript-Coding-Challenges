@@ -1,0 +1,124 @@
+body {
+  background: #f1f5f8;
+  color: #063251;
+}
+
+.input-section {
+  display: flex;
+  justify-content: center;
+}
+
+h3 {
+  font-weight: bold;
+  letter-spacing: 1.3px;
+  padding-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 80%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: #efefef;
+  border: 1px solid #efefef;
+  padding: 3px 15px;
+  color: #617d98;
+}
+
+.btn-add,
+.btn-edit {
+  background: #81b9e0;
+  border: 1px solid #81b9e0;
+  letter-spacing: 1.3px;
+  width: 80px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 15px;
+}
+
+.list-section {
+  background: white;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px #dedede;
+  width: 560px;
+  margin: auto;
+  text-align: center;
+  margin-top: 130px;
+  padding: 30px;
+}
+
+.list-item {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  transition: 0.2s;
+  border-radius: 5px;
+}
+
+.list-item p {
+  padding: 0;
+  position: relative;
+  top: 8px;
+}
+
+.list-item:hover,
+.remove-btn,
+.edit-btn {
+  background: #efefef;
+}
+
+.list-items-section {
+  margin-top: 20px;
+}
+
+.alert {
+  opacity: 0;
+  transition: 0.3s;
+  animation: ease 0.3s makeVisible forwards;
+}
+
+@keyframes makeVisible {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.remove-btn {
+  color: #d33333;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+  margin: 10px;
+  transition: 0.2s;
+}
+
+.edit-btn {
+  color: #319231;
+  padding: 0;
+  border-color: transparent;
+  background: transparent;
+  transition: 0.2s;
+}
+
+.remove-btn:hover {
+  color: red;
+}
+
+.edit-btn:hover {
+  color: green;
+}
+
+@media only screen and (max-width: 748px) {
+  .list-section {
+    width: 100%;
+    padding: 15px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+}

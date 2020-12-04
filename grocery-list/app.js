@@ -1,160 +1,127 @@
-const input = document.querySelector("input[type='text']");
-const submitBtn = document.querySelector('.submit-btn');
-const editBtn = document.querySelector('.edit-btn');
-const list = document.querySelector('.list');
-const errorField = document.querySelector('.error-field');
+import React, { useState, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
+import List from "./list";
+import Alert from "./alert";
 
-let getItemID = 0;
-let isEdit = false;
-let emptyArr = [];
-let listData = 0;
+const getFromLocalStorage = () => {
+  let items = localStorage.getItem("items");
+  if (items) {
+    return (items = JSON.parse(items));
+  } else {
+    return [];
+  }
+};
 
-function deleteItem(e) {
-     const itemId = e.parentNode.id;
-     e.parentNode.remove();
+const App = () => {
+  const [items, setItems] = useState(getFromLocalStorage());
+  const [item, setItem] = useState("");
+  const [isAlert, setIsAlert] = useState(false);
+  const [alertContent, setAlertContent] = useState("");
+  const [isEdit, setIsEdit] = useState({ active: false, id: "" });
 
-     for(let i = 0; i<listData.length; i++) {
-          if(itemId == listData[i].id) {
-               listData.splice(i, 1);
-          }
-     }
-     
-     localStorage.setItem('items', JSON.stringify(listData));
-}
+  useEffect(() => {
+    localStorage.setItem("items", JSON.stringify(items));
+  }, [items]);
 
-function editItem(e) {
-     isEdit = true;
-     submitBtn.style.display = "none";
-     editBtn.style.display = "inline-block";
+  const handleChange = (e) => {
+    setItem(e.target.value);
+  };
 
-     getItemID = () => {
-          return e.parentNode.id;
-     }
+  const addItem = () => {
+    if (item.length) {
+      const itemObj = {
+        id: uuidv4(),
+        item: item,
+      };
 
-     let updateItem = document.getElementById(getItemID());
-     input.value = updateItem.innerText;
-}
+      setItems([itemObj, ...items]);
+      setItem("");
+      getAlert("Item Added To List", "SUCCESS");
+    } else {
+      getAlert("Item Can't Be Blank", "ERROR");
+    }
+  };
 
-function editList(e) {
-     const ID = getItemID();
-     let updateItem = document.getElementById(ID);
+  const removeItem = (id) => {
+    const filterList = items.filter((item) => item.id !== id);
+    setItems(filterList);
+    getAlert("Item Deleted", "SUCCESS");
+  };
 
-     updateItem.innerHTML = `
-          ${input.value}
-          <span class="del-icon" onclick="editItem(this)">
-               <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-               </svg>
+  const editItem = (id) => {
+    const editedItem = { id, item };
+    if (item) {
+      setItems([
+        ...items.map((listItem) =>
+          listItem.id === id ? editedItem : listItem
+        ),
+      ]);
+      setIsEdit({ active: false, id: "" });
+      setItem("");
+      getAlert("Item Updated", "SUCCESS");
+    } else {
+      getAlert("Edited Item Can't Be Blank", "ERROR");
+    }
+  };
+
+  const getAlert = (text, type) => {
+    setIsAlert(true);
+    setAlertContent({ text, type });
+    setTimeout(() => {
+      setIsAlert(false);
+    }, 2000);
+  };
+
+  return (
+    <div className="container">
+      <section className="list-section">
+        {isAlert ? (
+          <span className="alert-section">
+            <Alert text={alertContent.text} type={alertContent.type} />
           </span>
-          <span class="del-icon" onclick="deleteItem(this)">
-               <svg style="color:red" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-               </svg>
-          </span>
-     `;
+        ) : (
+          ""
+        )}
+        <h3>Grocery Bud</h3>
+        <form onSubmit={(e) => e.preventDefault()} className="input-section">
+          <input
+            type="text"
+            name="listItem"
+            placeholder="e.g. eggs"
+            value={item}
+            onChange={handleChange}
+          />
+          {isEdit.active ? (
+            <button onClick={() => editItem(isEdit.id)} className="btn-edit">
+              Edit
+            </button>
+          ) : (
+            <button onClick={() => addItem()} className="btn-add">
+              Add
+            </button>
+          )}
+        </form>
+        {items.length < 1 ? (
+          <p style={{ paddingTop: "20px" }}>No Items To Show</p>
+        ) : (
+          <section className="list-items-section">
+            {items.map((listItem) => {
+              return (
+                <List
+                  key={listItem.id}
+                  {...listItem}
+                  removeItem={removeItem}
+                  editItem={setIsEdit}
+                  isEdit={isEdit}
+                  setItem={setItem}
+                />
+              );
+            })}
+          </section>
+        )}
+      </section>
+    </div>
+  );
+};
 
-     for(let i = 0; i<listData.length; i++) {
-          if(ID == listData[i].id) {
-               listData[i].name = input.value;
-          }
-     }
-     
-     localStorage.setItem('items', JSON.stringify(listData));
-
-     submitBtn.style.display = "inline-block";
-     editBtn.style.display = "none";
-     input.value = '';
-     isEdit = false;
-}
-
-function addToList(e) {
-     const ID = uuid();
-     const listItem = input.value;
-     
-     if(listItem) {
-          //ADD TO LOCAL STORAGE
-          listData.push({
-               id: ID,
-               name: listItem
-          });
-          localStorage.setItem('items', JSON.stringify(listData));
-          //ADD TO LOCAL STORAGE
-          let p = document.createElement('p');
-          p.style.padding= "10px";
-          p.innerHTML = `
-               ${listItem}
-               <span class="del-icon" onclick="editItem(this)">
-                    <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                         <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                    </svg>
-               </span>
-               <span class="del-icon" onclick="deleteItem(this)">
-                    <svg style="color:red" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                         <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                         <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                    </svg>
-               </span>
-          `;
-
-          p.setAttribute('id', ID);
-          list.appendChild(p);
-
-     } else {
-          if(!errorField.querySelector('p')) {
-               errorField.style.display = "block";
-               let errMsg = document.createElement('p');
-               errMsg.innerText = "Please Enter A Value";
-               errorField.appendChild(errMsg);
-          }
-
-          setTimeout(() => {
-               errorField.childNodes.forEach(item => {
-                    item.remove();
-               });
-          }, 1000);
-     }
-
-     input.value = "";
-}
-
-window.onload = function () {
-     listData = this.localStorage.getItem('items') ? JSON.parse(this.localStorage.getItem('items')) : 0;
-
-     if(listData == 0 || listData.length == 0) {
-          this.localStorage.setItem('items', JSON.stringify(emptyArr));
-     } else {
-          listData.forEach(item => {
-               let p = document.createElement('p');
-               p.style.padding= "10px";
-               p.innerHTML = `
-                    ${item.name}
-                    <span class="del-icon" onclick="editItem(this)">
-                         <svg width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                              <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                         </svg>
-                    </span>
-                    <span class="del-icon" onclick="deleteItem(this)">
-                         <svg style="color:red" width="1.2em" height="1.2em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                              <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                         </svg>
-                    </span>
-               `;
-
-               p.setAttribute('id', item.id);
-               list.appendChild(p);
-          });
-     }
-}
-
-editBtn.addEventListener('click', e => {editList(e); e.preventDefault();});
-submitBtn.addEventListener('click', (e) => {addToList(e); e.preventDefault();});
-input.addEventListener('keydown', e => {
-     if(e.keyCode == 13 && !isEdit) {
-          addToList();
-     }
-});
+export default App;
