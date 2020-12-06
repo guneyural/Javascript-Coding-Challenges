@@ -9,7 +9,12 @@ import {
 } from "../action/types";
 
 const initialState = {
-  cart: [],
+  cart:
+    localStorage.getItem("cart") !== null
+      ? JSON.parse(localStorage.getItem("cart")).length > 0
+        ? JSON.parse(localStorage.getItem("cart"))
+        : []
+      : [],
   itemCount: 0,
   totalPrice: 0,
   isLoading: false,
@@ -23,7 +28,10 @@ const cartReducer = (state = initialState, action) => {
     case GET_CART:
       return {
         ...state,
-        cart: action.payload,
+        cart:
+          JSON.parse(localStorage.getItem("cart")).length > 0
+            ? JSON.parse(localStorage.getItem("cart"))
+            : action.payload,
         itemCount: action.payload.length,
         isLoading: false,
       };
@@ -52,6 +60,7 @@ const cartReducer = (state = initialState, action) => {
         cart: state.cart.filter((cartItem) => cartItem.id !== action.payload),
       };
     case CLEAR:
+      localStorage.removeItem("cart");
       return {
         ...state,
         itemCount: 0,
@@ -64,6 +73,7 @@ const cartReducer = (state = initialState, action) => {
         isLoading: true,
       };
     case GET_TOTAL:
+      console.log(state.cart);
       state.cart.forEach((item) => {
         sum += item.amount;
         totalPrice += Number(item.price) * item.amount;
@@ -79,3 +89,4 @@ const cartReducer = (state = initialState, action) => {
 };
 
 export default cartReducer;
+
