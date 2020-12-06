@@ -52,10 +52,10 @@ const ShoppingCart = () => {
       </div>
       <section className="total-section">
         <h2>Total</h2>
-        <p class="total-price lead">$ {totalPrice}</p>
+        <p className="total-price lead">$ {totalPrice}</p>
       </section>
       <section className="text-center">
-        <button className="clear-all" onClick={() => dispatch(clear())}>
+        <button className="clear-all mb-5" onClick={() => dispatch(clear())}>
           Clear Cart
         </button>
       </section>
