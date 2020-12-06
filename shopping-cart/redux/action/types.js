@@ -1,0 +1,9 @@
+export const GET_CART = "GET_CART";
+export const INCREASE = "INCREASE";
+export const DECREASE = "DECREASE";
+export const REMOVE = "REMOVE";
+export const CLEAR = "CLEAR";
+export const LOADING = "LOADING";
+export const GET_TOTAL = "GET_TOTAL";
+export const GET_ERROR = "GET_ERROR";
+export const CLEAR_ERROR = "CLEAR_ERROR";
