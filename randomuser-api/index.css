@@ -1,0 +1,134 @@
+body {
+  background: #f1f5f8;
+  color: #102a42;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  background: #333333;
+}
+
+.person-card {
+  position: relative;
+  background: white;
+  border: 1px solid #dedede;
+  box-shadow: 1px 1px 5px gray;
+  width: 600px;
+  border-radius: 5px;
+  margin-top: 40vh;
+}
+
+.person-card-header {
+  background: #f1f5f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  width: 100%;
+}
+
+.person-img-box {
+  position: relative;
+  top: 30px;
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.person-img {
+  margin: auto;
+  border-radius: 50%;
+}
+
+.person-card-body {
+  padding-top: 50px;
+  text-align: center;
+  color: #324d67;
+  letter-spacing: 1.5px;
+}
+
+.user-data {
+  font-weight: bold;
+  color: #102a42;
+  font-size: 20px;
+  position: relative;
+  top: -10px;
+}
+
+.person-card-bottom {
+  margin-top: -20px;
+  padding-bottom: 20px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  color: #324d67;
+  font-size: 32px;
+  margin: 30px;
+  cursor: pointer;
+  transition: 0.4s;
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+}
+
+.icon:hover {
+  color: #021f3a;
+}
+
+.btn-bottom {
+  background: #228cc9;
+  border: 1px solid#228cc9;
+  color: white;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  padding: 1px 16px;
+  transition: 0.4s;
+}
+
+.btn-bottom:hover {
+  background: #105279;
+  border: 1px solid #105279;
+  color: #309cdb;
+}
+
+@media only screen and (max-width: 640px) {
+  .person-card {
+    width: 100%;
+    margin-top: 250px;
+  }
+  .icon {
+    font-size: 20px;
+    margin: 20px;
+  }
+}
+
+@media only screen and (max-width: 420px) {
+  .icon {
+    font-size: 16px;
+    margin: 20px;
+  }
+  .user-data {
+    font-size: 18px;
+    letter-spacing: 1.3px;
+  }
+}
+
+@media only screen and (max-width: 362px) {
+  .icon {
+    font-size: 15px;
+    margin: 15px;
+  }
+}
