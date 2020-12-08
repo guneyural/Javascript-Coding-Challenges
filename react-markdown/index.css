@@ -1,0 +1,28 @@
+body {
+  background: #f1f5f8;
+  color: #102a42;
+}
+
+textarea {
+  width: 100%;
+  border-color: transparent;
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px gray;
+  padding: 10px;
+  line-height: 20px;
+  letter-spacing: 1.5px;
+}
+
+.col-md-6 {
+  margin-top: 100px;
+}
+
+.text-output {
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .col-md-6 {
+    margin-top: 50px;
+  }
+}
