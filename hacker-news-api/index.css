@@ -1,0 +1,127 @@
+:root {
+  --bg-color: #f1f5f8;
+  --primary-color: #333333;
+  --transition: 0.5s;
+  --border-radius: 5px;
+  --btn-hover-color: #1e5c79;
+  --btn-bg-color: #43a2ce;
+  --btn-border: 1px solid #43a2ce;
+  --shadow: 1px 1px 8px #dadada;
+  --letter-spacing: 1.5px;
+  --text-muted: #818a9b;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--primary-color);
+  margin-bottom: 70px;
+}
+
+.hit-card {
+  background: white;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  margin-top: 30px;
+  padding: 1rem 2rem;
+}
+
+.hit-title {
+  letter-spacing: var(--letter-spacing);
+  font-weight: bold;
+}
+
+.hit-info {
+  color: var(--text-muted);
+  margin-top: -15px;
+}
+
+.read-more {
+  font-size: 12px;
+  letter-spacing: var(--letter-spacing);
+  margin-top: -15px;
+}
+
+.read-more:hover {
+  text-decoration: none;
+}
+
+.delete-btn {
+  cursor: pointer;
+  letter-spacing: var(--letter-spacing);
+  font-size: 12px;
+  padding-left: 12px;
+  margin-top: -15px;
+}
+
+.loading-icon {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+.search-bar {
+  margin-top: 30px;
+  padding: 4px 20px;
+  width: 50%;
+  background: transparent;
+  border-color: transparent;
+  letter-spacing: var(--letter-spacing);
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.total-hits {
+  color: var(--text-muted);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.navigation-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginate-btn {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: var(--letter-spacing);
+  background: var(--btn-bg-color);
+  border: var(--btn-border);
+  color: white;
+  border-radius: var(--border-radius);
+  margin: 10px;
+}
+
+.search-bar-underline {
+  width: 50%;
+  height: 3px;
+  background: var(--btn-hover-color);
+}
+
+@media only screen and (max-width: 768px) {
+  .search-bar {
+    width: 70%;
+  }
+  .search-bar-underline {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-bar-underline {
+    width: 100%;
+  }
+
+  .search-bar-header {
+    font-size: 30px;
+  }
+}
