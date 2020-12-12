@@ -26,7 +26,7 @@ const Hits = () => {
 
   return (
     <div className="container">
-      <SearchBar query={query} setQuery={setQuery} />
+      <SearchBar query={query} setQuery={setQuery} setPage={setPage} />
       <div className="navigation-section">
         <button onClick={() => setPage(page - 1)} className="paginate-btn">
           Prev
