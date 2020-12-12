@@ -1,7 +1,7 @@
 import React from "react";
 
 const SearchBar = (props) => {
-  const { query, setQuery } = props;
+  const { query, setQuery, setPage } = props;
 
   return (
     <>
@@ -13,7 +13,10 @@ const SearchBar = (props) => {
         <input
           type="text"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => {
+            setQuery(e.target.value);
+            setPage(1);
+          }}
           placeholder="Search Topic"
           className="search-bar"
         />
