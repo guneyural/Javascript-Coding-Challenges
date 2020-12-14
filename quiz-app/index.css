@@ -1,0 +1,139 @@
+:root {
+  --bg-color: #f1f5f8;
+  --primary-color: #333333;
+  --secondary-color: #30475f;
+  --answer-btn-bg: #5e96db;
+  --answer-btn-hover-bg: #1d61bb;
+  --transition: 0.5s;
+  --primary-btn: #fccb43;
+  --success-color: #25bb32;
+  --box-shadow: 1px 1px 8px #dedede;
+  --radius: 5px;
+  --letter-spacing: 1.4px;
+  --error-color: red;
+}
+
+body {
+  background: var(--bg-color);
+  color: var(--primary-color);
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+}
+
+.setup-card {
+  background: white;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--radius);
+  border: 1px solid white;
+  width: 500px;
+  margin: auto;
+  text-align: left;
+  padding: 30px;
+}
+
+.form-section {
+  padding-top: 12px;
+  margin-top: 12px;
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+#amount {
+  background: #efefef;
+  border: 1px solid #efefef;
+  padding: 3px 12px;
+  border-radius: var(--radius);
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  background: #efefef;
+  border-radius: var(--radius);
+  padding: 1.5px 8px;
+  border-color: transparent;
+}
+
+.start-btn {
+  width: 100%;
+  background: var(--primary-btn);
+  border: 1px solid var(--primary-btn);
+  border-radius: var(--radius);
+  padding: 3px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.error-txt {
+  color: var(--error-color);
+  text-align: center;
+  margin-top: 30px;
+}
+
+.question-text {
+  font-weight: bold;
+  letter-spacing: (var(--letter-spacing));
+  font-size: 24px;
+  margin-top: -10px;
+}
+
+.modal-box {
+  background: white;
+  text-align: center;
+  border-radius: var(--radius);
+  padding: 30px;
+  margin: 20px;
+}
+
+.modal-background {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  position: fixed;
+  z-index: 99999;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.option {
+  background: var(--answer-btn-bg);
+  border: 1px solid var(--answer-btn-bg);
+  width: 100%;
+  border-radius: 2px;
+  margin-top: 20px;
+  padding: 10px;
+  transition: var(--transition);
+  color: white;
+  font-weight: bold;
+}
+
+.option:hover {
+  background: var(--answer-btn-hover-bg);
+  border: 1px solid var(--answer-btn-hover-bg);
+}
+
+.correct-answers {
+  margin-top: -10px;
+  color: var(--success-color);
+  text-align: right;
+}
+
+@media only screen and (max-width: 768px) {
+  .setup-card {
+    width: 100%;
+  }
+  .question-text {
+    font-size: 20px;
+  }
+}
